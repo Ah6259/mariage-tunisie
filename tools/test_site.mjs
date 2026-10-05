@@ -24,13 +24,17 @@ const pages = [];
 })("");
 const osm = JSON.parse(lire("donnees/osm.json")).fiches;
 const retraits = existsSync(join(root, "donnees/retraits.json")) ? JSON.parse(lire("donnees/retraits.json")).ids : [];
-const attendues = osm.filter(f => !retraits.includes(f.id));
+const manuels = existsSync(join(root, "donnees/manuels.json")) ? JSON.parse(lire("donnees/manuels.json")).fiches : [];
+const inscrits = existsSync(join(root, "donnees/inscrits.json")) ? JSON.parse(lire("donnees/inscrits.json")).fiches : [];
+const attendues = [...osm, ...manuels, ...inscrits].filter(f => !retraits.includes(f.id));
 const fichesPages = pages.filter(p => p.startsWith("fiche/"));
 
 // -- structure
 check("accueil, à propos, professionnels et 24 pages de gouvernorat", ["index.html", "a-propos/index.html", "inscription/index.html"].every(p => pages.includes(p)) && pages.filter(p => p.startsWith("gouvernorat/")).length === 24);
 check(`une page par fiche (au plus ${attendues.length} : doublons fusionnés), aucune fiche retirée publiée`, fichesPages.length <= attendues.length && fichesPages.length >= attendues.length * 0.8 && retraits.every(id => !existsSync(join(root, "fiche", id))));
 check("au moins une fiche (le relevé OpenStreetMap a fonctionné)", attendues.length > 0);
+check("fiches « web » : chacune a le lien de la page publique de l'établissement et la date de relevé, affichés sur sa fiche",
+  manuels.every(f => f.source === "web" && /^https?:\/\//.test(f.source_url || "") && f.releve && existsSync(join(root, "fiche", f.id, "index.html")) && lire(`fiche/${f.id}/index.html`).includes("sa page publique")));
 
 // -- chaque page
 const ldOk = s => [...s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].every(m => { try { JSON.parse(m[1]); return true; } catch { return false; } });
