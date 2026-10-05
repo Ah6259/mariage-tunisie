@@ -1,0 +1,31 @@
+{
+  "id": "/mariage-tunisie/",
+  "name": "Mariage Tunisie — prestataires",
+  "short_name": "Mariage TN",
+  "description": "Annuaire gratuit des prestataires de mariage en Tunisie par gouvernorat : salles des fêtes, photographes, traiteurs, pâtisseries, coiffure et beauté. En français et en arabe.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "lang": "fr",
+  "dir": "auto",
+  "theme_color": "#B0306A",
+  "background_color": "#F4F7FA",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "bg": ["#C8457F", "#7E1F4B"],
+  "glyph": "<circle cx=\"256\" cy=\"284\" r=\"96\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"36\"/><path d=\"M256 188a96 96 0 0 1 0 192\" fill=\"none\" stroke=\"#F6D3E3\" stroke-width=\"36\"/><path d=\"M190 140l30-30h72l30 30l-66 64z\" fill=\"#F2B33D\"/><path d=\"M256 110h36l30 30l-66 64z\" fill=\"#DE9A26\"/><path d=\"M190 140h132l-66 64z\" fill=\"#FFFFFF\" fill-opacity=\"0.18\"/>"
+}

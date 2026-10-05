@@ -1,0 +1,114 @@
+{
+  "id": "mariage-tunisie",
+  "url": "https://ah6259.github.io/mariage-tunisie/",
+  "nom": {
+    "fr": "Mariage Tunisie — prestataires",
+    "ar": "الأعراس في تونس — مزودو الخدمات"
+  },
+  "court": {
+    "fr": "Mariage TN",
+    "ar": "الأعراس في تونس"
+  },
+  "sous_titre": {
+    "fr": "Annuaire gratuit · français et arabe",
+    "ar": "دليل مجاني · بالعربية والفرنسية"
+  },
+  "titre_accueil": {
+    "fr": "Trouver vos prestataires de mariage en Tunisie, gratuit",
+    "ar": "ابحث عن مزودي خدمات العرس في تونس مجانًا"
+  },
+  "intro": {
+    "fr": "Annuaire gratuit des prestataires de mariage en Tunisie : salles des fêtes, photographes, traiteurs, pâtisseries, coiffure et beauté. Adresse, téléphone, WhatsApp et itinéraire, gouvernorat par gouvernorat. Sans inscription.",
+    "ar": "دليل مجاني لمزودي خدمات العرس في تونس: قاعات الأفراح، المصورون، الممونون، الحلويات، الحلاقة والتجميل. العنوان والهاتف وواتساب والطريق، ولاية بولاية. دون تسجيل."
+  },
+  "description": "Annuaire gratuit des prestataires de mariage en Tunisie par gouvernorat : salles des fêtes, photographes, traiteurs, pâtisseries, coiffure et beauté. En français et en arabe.",
+  "couleur": "#B0306A",
+  "couleur_fonce": "#7E1F4B",
+  "couleur_claire": "#F8E8F0",
+  "schema": "LocalBusiness",
+  "metiers": [
+    {
+      "id": "salle-des-fetes",
+      "osm": [
+        "amenity=events_venue",
+        "amenity=wedding_venue"
+      ],
+      "fr": "Salle des fêtes",
+      "fr_pl": "Salles des fêtes",
+      "ar": "قاعة أفراح",
+      "ar_pl": "قاعات الأفراح",
+      "mots": "salle des fêtes salle de mariage réception fête événement espace قاعة أفراح قاعة حفلات عرس"
+    },
+    {
+      "id": "photographe",
+      "osm": [
+        "craft=photographer",
+        "shop=photo"
+      ],
+      "fr": "Photographe",
+      "fr_pl": "Photographes",
+      "ar": "مصور",
+      "ar_pl": "المصورون",
+      "mots": "photographe photo vidéo studio caméraman reportage مصور تصوير استوديو فيديو"
+    },
+    {
+      "id": "traiteur",
+      "osm": [
+        "craft=caterer"
+      ],
+      "fr": "Traiteur",
+      "fr_pl": "Traiteurs",
+      "ar": "ممون حفلات",
+      "ar_pl": "ممونو الحفلات",
+      "mots": "traiteur repas buffet service cuisine fête ممون حفلات طبخ أكل"
+    },
+    {
+      "id": "patisserie",
+      "osm": [
+        "shop=pastry"
+      ],
+      "fr": "Pâtisserie",
+      "fr_pl": "Pâtisseries",
+      "ar": "مرطبات",
+      "ar_pl": "محلات المرطبات",
+      "mots": "pâtisserie gâteau gâteaux traditionnels baklawa pièce montée مرطبات حلويات بقلاوة كعك"
+    },
+    {
+      "id": "coiffure-beaute",
+      "osm": [
+        "shop=hairdresser",
+        "shop=beauty"
+      ],
+      "fr": "Coiffure et beauté",
+      "fr_pl": "Coiffure et beauté",
+      "ar": "حلاقة وتجميل",
+      "ar_pl": "الحلاقة والتجميل",
+      "mots": "coiffure coiffeuse coiffeur beauté esthétique maquillage harqous henné institut حلاقة تجميل ماكياج حرقوس حناء"
+    }
+  ],
+  "liens": [
+    {
+      "fr": "Se marier en Tunisie : les démarches",
+      "ar": "الزواج في تونس: الإجراءات",
+      "url": "https://ah6259.github.io/documents-tunisie/mariage/"
+    }
+  ],
+  "inscriptions_ouvertes": false,
+  "goatcounter": "https://prix-eaux-tunisie.goatcounter.com",
+  "formspree": "https://formspree.io/f/mwlpakqj",
+  "photo": {
+    "fichier": "assets/photo-accueil.webp",
+    "largeur": 900,
+    "hauteur": 675,
+    "alt": {
+      "fr": "Mains des mariés : le marié passe la bague au doigt de la mariée, main décorée au henné (Tunisie)",
+      "ar": "يدا العروسين: العريس يضع الخاتم في إصبع العروس المزينة يدها بالحناء (تونس)"
+    },
+    "auteur": "Vivaystn",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wearing_of_engagement_ring.JPG",
+    "preuve": "annuaires/preuves/2026-10-05/mariage-tunisie__Wearing_of_engagement_ring.JPG_page.html"
+  },
+  "og_image": "og-image-v1.jpg"
+}
