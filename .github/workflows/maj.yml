@@ -23,6 +23,9 @@ jobs:
         with: { node-version: "20" }
       - name: Relevé OpenStreetMap
         run: python tools/releve_osm.py
+      - name: Reprise des fiches de nos autres annuaires (seulement pour l'annuaire qui les regroupe)
+        run: |
+          if [ -f tools/importer_annuaires.py ]; then python tools/importer_annuaires.py; fi
       - name: Pages
         run: node tools/construire.mjs
       - name: Tests

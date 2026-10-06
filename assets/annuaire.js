@@ -48,10 +48,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const champ = document.getElementById("champ-fiche");
   if (!champ) return;
   const q = new URLSearchParams(location.search), id = (q.get("fiche") || "").replace(/[^a-z0-9-]/gi, "").slice(0, 40);
-  const action = q.get("action");
+  const action = q.get("action"), nom = (q.get("nom") || "").slice(0, 120);
   if (id) { champ.value = id; const p = document.getElementById("fiche-choisie"); p.hidden = false; p.textContent = T("Fiche concernée : ", "البطاقة المعنية: ") + id; }
+  // formulaire Pro (lien « Vérifiez votre fiche » d'une fiche) : même fiche, nom pré-rempli
+  const pf = document.getElementById("p-fiche"), pn = document.getElementById("p-nom");
+  if (pf && id) pf.value = id;
+  if (pn && nom) pn.value = nom;
   const r = document.querySelector(`input[name="action"][value="${action === "retirer" ? "retirer" : action === "corriger" ? "corriger" : "ajouter"}"]`);
   if (r) r.checked = true;
+  // ajout = formulaire complet ; correction / retrait = message court (un fieldset désactivé n'est ni vérifié ni envoyé)
+  const ajout = document.getElementById("champs-ajout"), autre = document.getElementById("champs-autre");
+  const basculer = () => {
+    const a = (document.querySelector('input[name="action"]:checked') || {}).value === "ajouter";
+    if (ajout) { ajout.disabled = !a; ajout.hidden = !a; }
+    if (autre) { autre.disabled = a; autre.hidden = a; }
+  };
+  document.querySelectorAll('input[name="action"]').forEach(x => x.addEventListener("change", basculer));
+  basculer();
+  // spécialités : 5 au plus
+  document.addEventListener("change", e => {
+    if (!e.target.matches || !e.target.matches('input[name="specialites"][type="checkbox"]')) return;
+    const cochees = document.querySelectorAll('input[name="specialites"][type="checkbox"]:checked');
+    if (cochees.length > 5) e.target.checked = false;
+  });
 });
 
 /* --- formulaires : envoi au clic seulement (Formspree), message clair --- */
@@ -65,8 +84,13 @@ document.addEventListener("submit", async e => {
   try {
     const rep = await fetch(f.action, { method: "POST", body: new FormData(f), headers: { Accept: "application/json" } });
     if (!rep.ok) throw new Error(rep.status);
+    const formule = new FormData(f).get("formule") || "", action = new FormData(f).get("action") || "";
     f.reset(); statut.textContent = T("Merci, c'est envoyé. Nous lisons chaque message.", "شكرًا، تم الإرسال. نقرأ كل رسالة.");
-    compter(`envoi-${f.dataset.envoi}`, `Formulaire ${f.dataset.envoi} envoyé`);
+    compter(`envoi-${f.dataset.envoi}${formule ? "-" + formule : ""}`, `Formulaire ${f.dataset.envoi} envoyé`);
+    // inscription : confirmation et coordonnées du virement, montrées seulement après l'envoi
+    // ajout gratuit : on montre aussitôt l'offre Pro et les modes de paiement (règle d'Ahmed du 06/10/2026)
+    const apres = (f.dataset.envoi === "pro" && document.getElementById("apres-pro")) || (f.dataset.envoi === "demande" && action === "ajouter" && document.getElementById("apres-ajout"));
+    if (apres) { f.hidden = true; apres.hidden = false; apres.scrollIntoView && apres.scrollIntoView({ block: "start" }); }
   } catch (err) {
     statut.textContent = T("Envoi impossible pour l'instant. Réessayez plus tard.", "تعذّر الإرسال حاليًا. أعد المحاولة لاحقًا.");
   } finally { bouton.disabled = false; }

@@ -26,15 +26,21 @@ const osm = JSON.parse(lire("donnees/osm.json")).fiches;
 const retraits = existsSync(join(root, "donnees/retraits.json")) ? JSON.parse(lire("donnees/retraits.json")).ids : [];
 const manuels = existsSync(join(root, "donnees/manuels.json")) ? JSON.parse(lire("donnees/manuels.json")).fiches : [];
 const inscrits = existsSync(join(root, "donnees/inscrits.json")) ? JSON.parse(lire("donnees/inscrits.json")).fiches : [];
-const attendues = [...osm, ...manuels, ...inscrits].filter(f => !retraits.includes(f.id));
+const prosIds = existsSync(join(root, "donnees/pros.json")) ? (JSON.parse(lire("donnees/pros.json")).pros || []).map(p => p.fiche) : [];
+const contact = f => !!(f.tel || f.whatsapp || f.site || f.source_url || prosIds.includes(f.id));
+const sansContact = [...osm, ...manuels, ...inscrits, ...(existsSync(join(root, "donnees/importes.json")) ? JSON.parse(lire("donnees/importes.json")).fiches : [])].filter(f => !retraits.includes(f.id) && !contact(f));
+const importes = existsSync(join(root, "donnees/importes.json")) ? JSON.parse(lire("donnees/importes.json")).fiches : [];
+const attendues = [...osm, ...manuels, ...inscrits, ...importes].filter(f => !retraits.includes(f.id) && contact(f));
 const fichesPages = pages.filter(p => p.startsWith("fiche/"));
 
 // -- structure
 check("accueil, à propos, professionnels et 24 pages de gouvernorat", ["index.html", "a-propos/index.html", "inscription/index.html"].every(p => pages.includes(p)) && pages.filter(p => p.startsWith("gouvernorat/")).length === 24);
 check(`une page par fiche (au plus ${attendues.length} : doublons fusionnés), aucune fiche retirée publiée`, fichesPages.length <= attendues.length && fichesPages.length >= attendues.length * 0.8 && retraits.every(id => !existsSync(join(root, "fiche", id))));
 check("au moins une fiche (le relevé OpenStreetMap a fonctionné)", attendues.length > 0);
-check("fiches « web » : chacune a le lien de la page publique de l'établissement et la date de relevé, affichés sur sa fiche",
-  manuels.every(f => f.source === "web" && /^https?:\/\//.test(f.source_url || "") && f.releve && existsSync(join(root, "fiche", f.id, "index.html")) && lire(`fiche/${f.id}/index.html`).includes("sa page publique")));
+check("aucune fiche vide : les fiches sans téléphone, WhatsApp, site ni page publique ne sont pas publiées (règle d'Ahmed)", sansContact.every(f => !existsSync(join(root, "fiche", f.id))));
+check("fiches « web » (page publique de l'établissement) et « officiel » (liste d'une administration) : lien, date de relevé et bonne mention de la source sur la fiche",
+  manuels.every(f => ["web", "officiel"].includes(f.source) && /^https?:\/\//.test(f.source_url || "") && f.releve && (!contact(f) || (existsSync(join(root, "fiche", f.id, "index.html")) &&
+    lire(`fiche/${f.id}/index.html`).includes(f.source === "web" ? "sa page publique" : "la liste officielle publiée par")))));
 
 // -- chaque page
 const ldOk = s => [...s.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].every(m => { try { JSON.parse(m[1]); return true; } catch { return false; } });
@@ -72,6 +78,11 @@ check("photo du bandeau : fichier présent (≤ 200 Ko), crédit complet (auteur
   lire("index.html").includes(P.fichier) && lire("index.html").includes(P.licence) && /Wikimedia Commons/.test(lire("index.html")));
 check("image en couleur pour chaque métier (assets/metiers/<id>.svg), affichée sur les fiches",
   C.metiers.every(m => existsSync(join(root, "assets/metiers", m.id + ".svg")) && /<svg[\s\S]*viewBox/.test(lire("assets/metiers/" + m.id + ".svg"))) && s0.includes("assets/metiers/" + f0.metier + ".svg"));
+const photosM = C.metiers.filter(m => m.photo);
+check(`photos réelles par métier (${photosM.length}/${C.metiers.length}) : fichier ≤ 160 Ko, licence complète, crédit sur À propos, affichée sur la tuile du métier et les fiches`,
+  photosM.every(m => existsSync(join(root, m.photo.fichier)) && statSync(join(root, m.photo.fichier)).size <= 160 * 1024 && m.photo.auteur && m.photo.licence && m.photo.licence_url && /commons\.wikimedia\.org/.test(m.photo.source || "") &&
+    lire("a-propos/index.html").includes(m.photo.source.replace(/&/g, "&amp;")) && (C.metiers.length === 1 || lire("index.html").includes(`src="${m.photo.fichier}"`))) &&
+  lire("a-propos/index.html").includes("Crédits des photos"));
 check("image d'aperçu WhatsApp : fichier JPEG < 250 Ko déclaré dans les pages",
   !!C.og_image && existsSync(join(root, "assets", C.og_image)) && statSync(join(root, "assets", C.og_image)).size < 250 * 1024 && lire("index.html").includes("assets/" + C.og_image));
 
@@ -87,6 +98,8 @@ check("anti-copie : meta noai sur chaque page, script de protection (copie, clic
 const SECRETS = /(AIza[0-9A-Za-z_-]{20,}|gh[pousr]_[0-9A-Za-z]{20,}|sk-[0-9A-Za-z]{20,}|[0-9a-z._%+-]+@(yahoo|gmail|hotmail|outlook)\.[a-z]+)/i;
 check("aucun secret ni adresse e-mail privée dans le site", ![...pages, "config.json", "assets/page.js", "assets/annuaire.js", "assets/conf.js"].some(f => SECRETS.test(lire(f))));
 
+check("arabe : le champ anti-robot des formulaires garde 1 px de large (sinon la page arabe est décalée à droite)", /\.formulaire input\.piege[^}]*width:1px/.test(lire("assets/style.css")));
+check("un élément caché (attribut hidden) reste toujours caché, même avec un style d'affichage", /\[hidden\]\{display:none!important\}/.test(lire("assets/style.css")));
 check("arabe : aucun élément placé loin hors de l'écran (sinon la page arabe s'affiche blanche sur téléphone)", !/(left|right)\s*:\s*-\d{3,}px/.test(lire("assets/style.css")));
 check("doublons : pas deux fiches au même nom à moins de 300 m", (() => {
   const L = fichesPages.map(p => { const m = lire(p).match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/); try { return JSON.parse(m[1]); } catch { return null; } }).filter(x => x && x.geo);
@@ -147,6 +160,82 @@ else {
   check("fiche : un clic (appel / WhatsApp / itinéraire) est compté anonymement", !bouton || r.envois.some(e => e === `clic-${bouton.dataset.clic}/${fTel.id}`));
   const ins = await ouvrir("inscription/index.html", `?fiche=${f0.id}&action=retirer`);
   check("professionnels : fiche et action « retirer » pré-remplies depuis le lien d'une fiche", ins.d.getElementById("champ-fiche").value === f0.id && ins.d.querySelector('input[name="action"][value="retirer"]').checked);
+  {
+    const v = await ouvrir("inscription/index.html");
+    v.w.fetch = async () => ({ ok: true });
+    const fd = v.d.querySelector('form[data-envoi="demande"]');
+    fd.dispatchEvent(new v.w.Event("submit", { bubbles: true, cancelable: true }));
+    await new Promise(r => setTimeout(r, 50));
+    const ap = v.d.getElementById("apres-ajout");
+    check("ajout gratuit envoyé : l'offre Pro (prix, avantages, sans engagement) et les modes de paiement s'affichent aussitôt", !!ap && !ap.hidden && /Virement bancaire/.test(ap.textContent) && /sans engagement/.test(ap.textContent));
+  }
+  check("retrait : seul le message court est demandé (formulaire complet désactivé)", ins.d.getElementById("champs-ajout").disabled && !ins.d.getElementById("champs-autre").disabled);
+  const aj = await ouvrir("inscription/index.html");
+  const req = n => { const e = aj.d.querySelector(`#champs-ajout [name="${n}"]`); return !!e && e.required; };
+  check("ajout d'une fiche : formulaire complet obligatoire (ville, adresse, téléphone, e-mail, autorisation), comme une inscription pro",
+    !aj.d.getElementById("champs-ajout").disabled && aj.d.getElementById("champs-autre").disabled && ["ville", "adresse", "telephone", "email", "autorise"].every(req) && !!aj.d.querySelector('#champs-ajout [name="whatsapp"]') && !!aj.d.querySelector('#champs-ajout [name="horaires"]'));
+}
+
+// -- espace professionnels et formule Pro (règles d'Ahmed du 06/10/2026)
+{
+  const ins = lire("inscription/index.html");
+  check("bouton « Inscription Pro » visible dans l'en-tête de chaque page, vers les prix et avantages", /class="entete-pro" href="\$\{racine\}inscription\/#offres"/.test(lire("assets/page.js")) && lire("index.html").includes('href="inscription/#offres"'));
+  check("bouton « Paiement » : modes de paiement visibles d'un clic avant l'inscription (virement + montant)", /<details class="paiement" id="paiement"><summary[^>]*>[\s\S]*Paiement[\s\S]*Virement bancaire[\s\S]*Montant/.test(ins));
+  check("professionnels : offre gratuite + formule Pro avec 1er mois gratuit et prix affichés", /class="offre pro"/.test(ins) && /mois offert/.test(ins) && /pour toujours/.test(ins) && /jamais supprimée/.test(ins) && /Sans engagement au-delà d'un an/.test(ins));
+  if (C.inscriptions_ouvertes !== true) check("inscriptions fermées (pas de déclaration INPDP) : ni formulaire Pro, ni coordonnées de paiement, ni page conditions",
+    !/data-envoi="pro"/.test(ins) && !/id="apres-pro"/.test(ins) && !existsSync(join(root, "conditions", "index.html")));
+  else check("inscriptions ouvertes : déclaration INPDP, titulaire et RIB renseignés dans config.json", !!(C.pro && C.pro.inpdp && C.pro.virement && C.pro.virement.titulaire && C.pro.virement.rib));
+  // simulation complète dans une copie temporaire : inscriptions ouvertes, un Pro en essai, un Pro expiré, une fiche vérifiée
+  const { mkdtempSync, cpSync, writeFileSync, rmSync } = await import("fs");
+  const { tmpdir } = await import("os");
+  const { execFileSync } = await import("child_process");
+  const tmp = mkdtempSync(join(tmpdir(), "annuaire-pro-"));
+  try {
+    cpSync(root, tmp, { recursive: true, filter: s => !/[\\/](node_modules|\.git)([\\/]|$)/.test(s.slice(root.length)) });
+    const ids = attendues.filter(f => !retraits.includes(f.id)).slice(0, 3).map(f => f.id);
+    const [idEssai, idFini, idVerif] = ids;
+    const essaiNom = attendues.find(f => f.id === idEssai).nom;
+    writeFileSync(join(tmp, "donnees/pros.json"), JSON.stringify({ pros: [
+      { fiche: idEssai, formule: "pro", debut: "2026-10-01", description: { fr: "Présentation test", ar: "تقديم تجريبي" }, specialites: ["Spécialité test"], whatsapp: "98000000" },
+      { fiche: idFini, formule: "pro", debut: "2026-06-01" },
+      { fiche: idVerif, formule: "gratuite", verifiee: "2026-10-02" } ] }));
+    const cfg = JSON.parse(readFileSync(join(tmp, "config.json"), "utf8"));
+    cfg.pro = { ...(cfg.pro || {}), virement: { titulaire: "SUARL TEST", banque: "Banque test", rib: "00 000 0000000000000 00" }, autres_paiements: [{ nom: "D17", detail: "99 999 999" }] };
+    writeFileSync(join(tmp, "config.json"), JSON.stringify(cfg));
+    execFileSync(process.execPath, [join(tmp, "tools/construire.mjs")], { env: { ...process.env, PRO_OUVERT: "1", AUJOURDHUI: "2026-10-15" }, stdio: "pipe" });
+    const L = f => readFileSync(join(tmp, f), "utf8");
+    const accueil = L("index.html"), gEssai = attendues.find(f => f.id === idEssai).gouvernorat;
+    const ordre = [...L(`gouvernorat/${gEssai}/index.html`).matchAll(/href="\.\.\/\.\.\/fiche\/([^/]+)\//g)].map(m => m[1]);
+    check("Pro en mois gratuit : en tête de son gouvernorat, badge « Pro », note honnête sur l'ordre", ordre[0] === idEssai && /class="badge pro"/.test(accueil) && /note-pro/.test(L(`gouvernorat/${gEssai}/index.html`)));
+    const fe = L(`fiche/${idEssai}/index.html`);
+    check("fiche Pro : présentation, spécialités, WhatsApp de la formule", fe.includes("Présentation test") && fe.includes("Spécialité test") && fe.includes("wa.me/21698000000"));
+    const ff = L(`fiche/${idFini}/index.html`);
+    check("Pro non payé après le mois gratuit : redevient gratuite TOUTE SEULE, sans être supprimée", !/class="badge pro"/.test(ff) && accueil.includes(`class="fiche-carte" href="fiche/${idFini}/"`) && ff.includes(attendues.find(f => f.id === idFini).nom.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;")));
+    check("fiche vérifiée gratuite : badge « Vérifiée » et date", /badge verifiee/.test(L(`fiche/${idVerif}/index.html`)) && L(`fiche/${idVerif}/index.html`).includes("le 2026-10-02"));
+    const io = L("inscription/index.html");
+    check("inscriptions ouvertes : formulaire Pro (formule, cases d'autorisation et de conditions), page conditions sans renouvellement automatique",
+      /data-envoi="pro"/.test(io) && /name="formule" value="pro"/.test(io) && /name="autorise"[^>]*required/.test(io) && /name="conditions"[^>]*required/.test(io) && /aucun renouvellement automatique/.test(L("conditions/index.html")));
+    check("coordonnées de paiement (virement + D17) dans le bouton « Paiement » de l'offre Pro ET dans la confirmation après l'envoi", /<details class="paiement"[\s\S]*00 000 0000000000000 00[\s\S]*D17[\s\S]*99 999 999[\s\S]*<\/details>/.test(io) && /<div class="apres-pro" id="apres-pro" hidden>[\s\S]*00 000 0000000000000 00/.test(io) && /href="#pro"/.test(io));
+    check("fiche non Pro : lien « Vérifiez votre fiche gratuitement » vers le formulaire Pro", L(`fiche/${idVerif}/index.html`).includes(`inscription/?fiche=${idVerif}&amp;nom=`));
+    check("jamais « meilleur » dans l'espace professionnels", !/meilleur/i.test(io.replace(/n'écrivons jamais qu'un établissement est « le meilleur »/g, "")) && !/meilleur/i.test(L("conditions/index.html").replace(/« le meilleur »/g, "")));
+    if (JSDOM) {
+      const html = io.replace(/<script[^>]*src="[^"]*"[^>]*><\/script>/g, "");
+      const dom = new JSDOM(html, { runScripts: "outside-only", url: C.url + `inscription/?fiche=${idEssai}&nom=${encodeURIComponent(essaiNom)}` });
+      const w = dom.window, envois = [];
+      w.goatcounter = { count: o => envois.push(o.path) };
+      w.fetch = async () => ({ ok: true });
+      for (const js of ["assets/conf.js", "assets/page.js", "assets/annuaire.js"]) w.eval(L(js));
+      await new Promise(r => setTimeout(r, 50));
+      const d = w.document, form = d.querySelector('form[data-envoi="pro"]');
+      check("formulaire Pro : fiche et nom pré-remplis depuis le lien de la fiche", d.getElementById("p-fiche").value === idEssai && d.getElementById("p-nom").value === essaiNom);
+      check("confirmation cachée avant l'envoi", d.getElementById("apres-pro").hidden);
+      form.querySelector('input[value="pro"]').checked = true;
+      form.dispatchEvent(new w.Event("submit", { bubbles: true, cancelable: true }));
+      await new Promise(r => setTimeout(r, 50));
+      check("après l'envoi : confirmation + coordonnées de paiement visibles, envoi compté (formule pro)", !d.getElementById("apres-pro").hidden && form.hidden && envois.includes("envoi-pro-pro"));
+    }
+  } catch (e) { check("simulation de la formule Pro : " + e.message, false); }
+  finally { rmSync(tmp, { recursive: true, force: true }); }
 }
 
 console.log(ko ? `\n${ko} PROBLÈME(S) sur ${ok + ko} vérifications` : `\nTOUT PASSE (${ok} vérifications)`);

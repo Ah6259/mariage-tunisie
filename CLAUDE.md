@@ -33,3 +33,8 @@ Répondre à Ahmed **en français**, simplement. Règles communes : `../../regle
 
 ## Tests
 `node tools/construire.mjs` puis `node tools/test_site.mjs` → **TOUT PASSE** (jsdom : `npm install --no-save --no-package-lock jsdom`).
+
+## Règles du moteur (mise à jour du 06/10/2026, détail dans annuaires/moteur/CLAUDE.md)
+- **Aucune fiche vide** : une fiche sans téléphone, WhatsApp, site ni page publique n'est pas publiée (règle d'Ahmed, pour le sérieux).
+- Au moins 3 fiches par métier et par gouvernorat ; sources affichées telles quelles (osm, web = page de l'établissement, officiel = liste d'une administration).
+- Vraie photo par métier (config.metiers[].photo) ; espace professionnels gratuit + Pro (1er mois offert), fermé jusqu'à l'INPDP.

@@ -37,7 +37,20 @@
       "fr_pl": "Salles des fêtes",
       "ar": "قاعة أفراح",
       "ar_pl": "قاعات الأفراح",
-      "mots": "salle des fêtes salle de mariage réception fête événement espace قاعة أفراح قاعة حفلات عرس"
+      "mots": "salle des fêtes salle de mariage réception fête événement espace قاعة أفراح قاعة حفلات عرس",
+      "photo": {
+        "fichier": "assets/metiers-photos/salle-des-fetes.webp",
+        "largeur": 600,
+        "hauteur": 450,
+        "alt": {
+          "fr": "Salle de réception décorée pour un mariage",
+          "ar": "قاعة استقبال مزيّنة لحفل زفاف"
+        },
+        "auteur": "Shixart1985",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Elegant_banquet_setup_for_wedding_reception_with_beautifully_arranged_tables_in_soft_lighting.jpg"
+      }
     },
     {
       "id": "photographe",
@@ -49,7 +62,20 @@
       "fr_pl": "Photographes",
       "ar": "مصور",
       "ar_pl": "المصورون",
-      "mots": "photographe photo vidéo studio caméraman reportage مصور تصوير استوديو فيديو"
+      "mots": "photographe photo vidéo studio caméraman reportage مصور تصوير استوديو فيديو",
+      "photo": {
+        "fichier": "assets/metiers-photos/photographe.webp",
+        "largeur": 600,
+        "hauteur": 450,
+        "alt": {
+          "fr": "Photographe de mariage en train de prendre une photo de groupe",
+          "ar": "مصوّر أعراس يلتقط صورة جماعية"
+        },
+        "auteur": "Ildar Sagdejev (Specious)",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:2012-05-20_Professional_wedding_group_portrait_on_the_lawn.jpg"
+      }
     },
     {
       "id": "traiteur",
@@ -60,7 +86,20 @@
       "fr_pl": "Traiteurs",
       "ar": "ممون حفلات",
       "ar_pl": "ممونو الحفلات",
-      "mots": "traiteur repas buffet service cuisine fête ممون حفلات طبخ أكل"
+      "mots": "traiteur repas buffet service cuisine fête ممون حفلات طبخ أكل",
+      "photo": {
+        "fichier": "assets/metiers-photos/traiteur.webp",
+        "largeur": 600,
+        "hauteur": 450,
+        "alt": {
+          "fr": "Buffet de plats tunisiens : pains, couscous, salade méchouia",
+          "ar": "بوفيه أطباق تونسية: خبز وكسكسي وسلطة مشوية"
+        },
+        "auteur": "Gigi sorrentino",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Cucina_tunisina.JPG"
+      }
     },
     {
       "id": "patisserie",
@@ -71,7 +110,20 @@
       "fr_pl": "Pâtisseries",
       "ar": "مرطبات",
       "ar_pl": "محلات المرطبات",
-      "mots": "pâtisserie gâteau gâteaux traditionnels baklawa pièce montée مرطبات حلويات بقلاوة كعك"
+      "mots": "pâtisserie gâteau gâteaux traditionnels baklawa pièce montée مرطبات حلويات بقلاوة كعك",
+      "photo": {
+        "fichier": "assets/metiers-photos/patisserie.webp",
+        "largeur": 600,
+        "hauteur": 450,
+        "alt": {
+          "fr": "Plateau de pâtisseries tunisiennes traditionnelles",
+          "ar": "صينية حلويات تونسية تقليدية"
+        },
+        "auteur": "Kritzolina",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Sweets_of_Tunisia_01.jpg"
+      }
     },
     {
       "id": "coiffure-beaute",
@@ -83,7 +135,20 @@
       "fr_pl": "Coiffure et beauté",
       "ar": "حلاقة وتجميل",
       "ar_pl": "الحلاقة والتجميل",
-      "mots": "coiffure coiffeuse coiffeur beauté esthétique maquillage harqous henné institut حلاقة تجميل ماكياج حرقوس حناء"
+      "mots": "coiffure coiffeuse coiffeur beauté esthétique maquillage harqous henné institut حلاقة تجميل ماكياج حرقوس حناء",
+      "photo": {
+        "fichier": "assets/metiers-photos/coiffure-beaute.webp",
+        "largeur": 600,
+        "hauteur": 450,
+        "alt": {
+          "fr": "Main décorée au henné d'une mariée en tenue traditionnelle",
+          "ar": "يد عروس مزيّنة بالحنّاء في لباس تقليدي"
+        },
+        "auteur": "Brahim FARAJI",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Henna_Party_-_Moroccan_Wedding_-_Brahim_FARAJI.jpg"
+      }
     }
   ],
   "liens": [
