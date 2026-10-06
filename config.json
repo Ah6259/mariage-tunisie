@@ -157,7 +157,9 @@
       "ar": "الزواج في تونس: الإجراءات",
       "url": "https://ah6259.github.io/documents-tunisie/mariage/",
       "desc_fr": "Papiers, étapes et délais, gratuitement",
-      "desc_ar": "الوثائق والمراحل والآجال، مجانًا"
+      "desc_ar": "الوثائق والمراحل والآجال، مجانًا",
+      "logo": "assets/liens/documents.svg",
+      "vedette": true
     }
   ],
   "inscriptions_ouvertes": true,
