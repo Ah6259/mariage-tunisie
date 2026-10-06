@@ -179,7 +179,7 @@ else {
 // -- espace professionnels et formule Pro (règles d'Ahmed du 06/10/2026)
 {
   const ins = lire("inscription/index.html");
-  check("bouton « Inscription Pro » visible dans l'en-tête de chaque page, vers les prix et avantages", /class="entete-pro" href="\$\{racine\}inscription\/#offres"/.test(lire("assets/page.js")) && lire("index.html").includes('href="inscription/#offres"'));
+  check("bouton « Inscription Pro » visible dans l'en-tête de chaque page, vers les prix et avantages", /class="entete-pro" href="\$\{racine\}inscription\/#offres"/.test(lire("assets/page.js")) && lire("index.html").includes('href="inscription/#offres"') && /class="appel-pro"><a class="btn btn-pro" href="inscription\/#offres"/.test(lire("index.html")));
   check("bouton « Paiement » : modes de paiement visibles d'un clic avant l'inscription (virement + montant)", /<details class="paiement" id="paiement"><summary[^>]*>[\s\S]*Paiement[\s\S]*Virement bancaire[\s\S]*Montant/.test(ins));
   check("professionnels : offre gratuite + formule Pro avec 1er mois gratuit et prix affichés", /class="offre pro"/.test(ins) && /mois offert/.test(ins) && /pour toujours/.test(ins) && /jamais supprimée/.test(ins) && /Sans engagement au-delà d'un an/.test(ins));
   if (C.inscriptions_ouvertes !== true) check("inscriptions fermées (pas de déclaration INPDP) : ni formulaire Pro, ni coordonnées de paiement, ni page conditions",

@@ -109,7 +109,7 @@ const P = C.photo;
 // photo réelle par métier (config.metiers[].photo, Wikimedia, licence libre) : plus de sérieux ; crédits sur la page À propos
 const photoDe = m => (m && m.photo) || P;
 const fondPhoto = (ph, racine) => ph ? `<img class="hero-fond" src="${racine}${esc(ph.fichier)}" alt="" width="${ph.largeur || 900}" height="${ph.hauteur || 675}">` : "";
-const creditPhoto = () => P ? `<p class="credit">${bi("Photo", "صورة")} : <bdi>${esc(P.auteur)}</bdi>, <a href="${esc(P.licence_url)}" rel="noopener license">${esc(P.licence)}</a>, <a href="${esc(P.source)}" rel="noopener">Wikimedia Commons</a></p>` : "";
+const creditPhoto = () => P && P.mosaique ? `<p class="credit">${bi("Mosaïque de photos", "فسيفساء صور")} : ${P.mosaique.map(c => `<bdi>${esc(c.auteur)}</bdi>`).join(", ")} — ${bi("licences libres", "رخص حرة")} (<a href="${esc(P.licence_url)}" rel="noopener license">${esc(P.licence)}</a>…), <a href="a-propos/">${bi("détail", "التفاصيل")}</a>, Wikimedia Commons</p>` : P ? `<p class="credit">${bi("Photo", "صورة")} : <bdi>${esc(P.auteur)}</bdi>, <a href="${esc(P.licence_url)}" rel="noopener license">${esc(P.licence)}</a>, <a href="${esc(P.source)}" rel="noopener">Wikimedia Commons</a></p>` : "";
 
 function tete({ titre, desc, chemin, racine, jsonld = [] }) {
   return `<!doctype html>
@@ -234,6 +234,7 @@ const metierPl = C.metiers.length === 1 ? C.metiers[0] : { fr_pl: "professionnel
   <h1>${biO(C.titre_accueil)}</h1>
   <p class="intro">${biO(C.intro)}</p>
   <p class="chiffre">${bi(`${FICHES.length} ${esc(metierPl.fr_pl.toLowerCase())} dans ${Object.values(compteG).filter(Boolean).length} gouvernorats`, `${ISO(FICHES.length)} ${esc(metierPl.ar_pl)} في ${ISO(Object.values(compteG).filter(Boolean).length)} ولاية`)}</p>
+  <p class="appel-pro"><a class="btn btn-pro" href="inscription/#offres">${bi("Professionnel ? Inscription Pro : 1er mois gratuit", "مهني؟ تسجيل Pro: الشهر الأول مجاني")}</a></p>
   </div>
   <figure class="hero-carte">${carteTunisie("", compteG)}<figcaption>${bi("Touchez un gouvernorat", "اضغط على ولاية")}</figcaption></figure>
 </div>${P ? `<div class="wrap">${creditPhoto()}</div>` : ""}</section>
@@ -496,7 +497,7 @@ pages["a-propos/"] = tete({ titre: `À propos et sources | ${C.nom.fr}`, desc: `
   <h2>${bi("Site gratuit et non officiel", "موقع مجاني وغير رسمي")}</h2>
   <p>${bi("Ce site n'est lié à aucune administration ni organisation professionnelle. La consultation est gratuite et sans inscription.", "هذا الموقع غير مرتبط بأي إدارة أو هيكل مهني. التصفح مجاني ودون تسجيل.")}</p>
   <h2>${bi("Crédits des photos", "حقوق الصور")}</h2>
-  <ul class="credits">${[P, ...C.metiers.map(m => m.photo)].filter(Boolean).map(ph => `<li><bdi>${esc(ph.auteur)}</bdi>, <a href="${esc(ph.licence_url)}" rel="noopener license">${esc(ph.licence)}</a>, <a href="${esc(ph.source)}" rel="noopener">Wikimedia Commons</a></li>`).join("")}</ul>
+  <ul class="credits">${[...(P && P.mosaique ? P.mosaique : [P]), ...C.metiers.map(m => m.photo)].filter(Boolean).filter((ph, i, t) => t.findIndex(x => x.source === ph.source) === i).map(ph => `<li><bdi>${esc(ph.auteur)}</bdi>, <a href="${esc(ph.licence_url)}" rel="noopener license">${esc(ph.licence)}</a>, <a href="${esc(ph.source)}" rel="noopener">Wikimedia Commons</a></li>`).join("")}</ul>
   <h2>${bi("Données personnelles et retrait", "المعطيات الشخصية والحذف")}</h2>
   <p>${bi(`Nous ne publions que des informations professionnelles déjà publiques ou données par l'établissement. Tout établissement peut demander la correction ou le retrait de sa fiche depuis la page <a href="../inscription/">Professionnels</a> ; un retrait est définitif. Statistiques de visite anonymes, sans cookies (GoatCounter).`, `لا ننشر إلا معلومات مهنية منشورة سابقًا أو قدّمتها المؤسسة. يمكن لكل مؤسسة طلب تصحيح بطاقتها أو حذفها من صفحة <a href="../inscription/">المهنيون</a>؛ والحذف نهائي. إحصائيات زيارة مجهولة دون ملفات تعريف الارتباط (GoatCounter).`)}</p>
 </section></main>
