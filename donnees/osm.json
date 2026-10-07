@@ -1778,6 +1778,22 @@
    "osm": "https://www.openstreetmap.org/node/12676849464"
   },
   {
+   "id": "osm-n14127164026",
+   "source": "osm",
+   "metier": "coiffure-beaute",
+   "nom": "Bahia",
+   "nom_ar": null,
+   "gouvernorat": "kairouan",
+   "ville": "Kairouan",
+   "adresse": "Av. Oqba Ibn Nafaâ",
+   "tel": "53351358",
+   "site": "https://bahiacosmetic.com/",
+   "horaires": null,
+   "lat": 35.682697,
+   "lon": 10.104024,
+   "osm": "https://www.openstreetmap.org/node/14127164026"
+  },
+  {
    "id": "osm-n12389226578",
    "source": "osm",
    "metier": "patisserie",
@@ -2418,6 +2434,22 @@
    "osm": "https://www.openstreetmap.org/node/6004901297"
   },
   {
+   "id": "osm-n14161996428",
+   "source": "osm",
+   "metier": "patisserie",
+   "nom": "Les Délices de Afaf",
+   "nom_ar": null,
+   "gouvernorat": "la-manouba",
+   "ville": null,
+   "adresse": null,
+   "tel": "93896055",
+   "site": null,
+   "horaires": null,
+   "lat": 36.809093,
+   "lon": 10.09814,
+   "osm": "https://www.openstreetmap.org/node/14161996428"
+  },
+  {
    "id": "osm-w665454128",
    "source": "osm",
    "metier": "photographe",
@@ -2594,6 +2626,22 @@
    "osm": "https://www.openstreetmap.org/node/13097652097"
   },
   {
+   "id": "osm-w990345033",
+   "source": "osm",
+   "metier": "patisserie",
+   "nom": "Arabesque Pâtisserie Tunisienne",
+   "nom_ar": null,
+   "gouvernorat": "medenine",
+   "ville": "Erriadh",
+   "adresse": null,
+   "tel": "75670499",
+   "site": null,
+   "horaires": null,
+   "lat": 33.818741,
+   "lon": 10.859849,
+   "osm": "https://www.openstreetmap.org/way/990345033"
+  },
+  {
    "id": "osm-n13322371559",
    "source": "osm",
    "metier": "coiffure-beaute",
@@ -2706,6 +2754,22 @@
    "osm": "https://www.openstreetmap.org/node/13239128693"
   },
   {
+   "id": "osm-n14103544537",
+   "source": "osm",
+   "metier": "coiffure-beaute",
+   "nom": "افندي",
+   "nom_ar": "افندي",
+   "gouvernorat": "medenine",
+   "ville": null,
+   "adresse": null,
+   "tel": null,
+   "site": null,
+   "horaires": "Mo-Su",
+   "lat": 33.335205,
+   "lon": 10.48739,
+   "osm": "https://www.openstreetmap.org/node/14103544537"
+  },
+  {
    "id": "osm-n6250017485",
    "source": "osm",
    "metier": "coiffure-beaute",
@@ -2736,6 +2800,22 @@
    "lat": 33.879464,
    "lon": 10.854718,
    "osm": "https://www.openstreetmap.org/node/7656186299"
+  },
+  {
+   "id": "osm-n14103544538",
+   "source": "osm",
+   "metier": "coiffure-beaute",
+   "nom": "فهموش",
+   "nom_ar": "فهموش",
+   "gouvernorat": "medenine",
+   "ville": null,
+   "adresse": null,
+   "tel": null,
+   "site": null,
+   "horaires": null,
+   "lat": 33.337574,
+   "lon": 10.48601,
+   "osm": "https://www.openstreetmap.org/node/14103544538"
   },
   {
    "id": "osm-n11061466829",
@@ -3248,6 +3328,22 @@
    "lat": 35.655983,
    "lon": 10.888355,
    "osm": "https://www.openstreetmap.org/way/1194328389"
+  },
+  {
+   "id": "osm-w1548302635",
+   "source": "osm",
+   "metier": "salle-des-fetes",
+   "nom": "Salle des fêtes Mozart",
+   "nom_ar": "قاعة الأفراح موزارت",
+   "gouvernorat": "monastir",
+   "ville": null,
+   "adresse": null,
+   "tel": null,
+   "site": null,
+   "horaires": null,
+   "lat": 35.604525,
+   "lon": 10.889695,
+   "osm": "https://www.openstreetmap.org/way/1548302635"
   },
   {
    "id": "osm-n3077484456",
@@ -4640,6 +4736,22 @@
    "lat": 34.774158,
    "lon": 10.715066,
    "osm": "https://www.openstreetmap.org/node/6744490270"
+  },
+  {
+   "id": "osm-n14068058243",
+   "source": "osm",
+   "metier": "patisserie",
+   "nom": "Pastel",
+   "nom_ar": null,
+   "gouvernorat": "sfax",
+   "ville": null,
+   "adresse": null,
+   "tel": null,
+   "site": null,
+   "horaires": null,
+   "lat": 34.793454,
+   "lon": 10.776957,
+   "osm": "https://www.openstreetmap.org/node/14068058243"
   },
   {
    "id": "osm-n6499486422",
@@ -6098,6 +6210,22 @@
    "osm": "https://www.openstreetmap.org/node/8414965583"
   },
   {
+   "id": "osm-n14107426096",
+   "source": "osm",
+   "metier": "coiffure-beaute",
+   "nom": "Chouf Poux",
+   "nom_ar": null,
+   "gouvernorat": "tunis",
+   "ville": null,
+   "adresse": null,
+   "tel": null,
+   "site": null,
+   "horaires": null,
+   "lat": 36.829029,
+   "lon": 10.178567,
+   "osm": "https://www.openstreetmap.org/node/14107426096"
+  },
+  {
    "id": "osm-n11147135353",
    "source": "osm",
    "metier": "coiffure-beaute",
@@ -6192,6 +6320,22 @@
    "lat": 36.855893,
    "lon": 10.253743,
    "osm": "https://www.openstreetmap.org/node/2590089915"
+  },
+  {
+   "id": "osm-n14211573001",
+   "source": "osm",
+   "metier": "coiffure-beaute",
+   "nom": "Coiffeur Salon 3H",
+   "nom_ar": null,
+   "gouvernorat": "tunis",
+   "ville": null,
+   "adresse": "نهج الملاحة",
+   "tel": null,
+   "site": null,
+   "horaires": null,
+   "lat": 36.802706,
+   "lon": 10.177204,
+   "osm": "https://www.openstreetmap.org/node/14211573001"
   },
   {
    "id": "osm-n11142500228",
@@ -7008,6 +7152,22 @@
    "lat": 36.839784,
    "lon": 10.31746,
    "osm": "https://www.openstreetmap.org/node/10044670160"
+  },
+  {
+   "id": "osm-n14107426041",
+   "source": "osm",
+   "metier": "coiffure-beaute",
+   "nom": "VOGUE",
+   "nom_ar": null,
+   "gouvernorat": "tunis",
+   "ville": null,
+   "adresse": null,
+   "tel": null,
+   "site": null,
+   "horaires": null,
+   "lat": 36.829106,
+   "lon": 10.178706,
+   "osm": "https://www.openstreetmap.org/node/14107426041"
   },
   {
    "id": "osm-n11160778470",
