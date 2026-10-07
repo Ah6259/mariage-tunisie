@@ -1,5 +1,11 @@
 # Mariage Tunisie — prestataires (mariage-tunisie)
 
+> ⚠️ **À REPORTER DANS LE MOTEUR DU PC (`annuaires/moteur/`) AVANT TOUTE SYNCHRONISATION** (07/10/2026) : correction des grandes
+> cartes de métier qui filtrent la liste (`a.metier[data-m]` → `choisir()` dans `assets/annuaire.js`) + son test dans
+> `tools/test_site.mjs` (« une grande carte de métier filtre la liste »). Faite depuis le téléphone, elle a déjà été effacée une
+> fois par `synchroniser.py` le 07/10 : copier `assets/annuaire.js` et `tools/test_site.mjs` de ce dépôt vers le moteur, puis supprimer ce bloc.
+
+
 > **Ce site** : https://ah6259.github.io/mariage-tunisie/ — annuaire gratuit des prestataires de mariage (FR/AR), couleur framboise, icône bague.
 > Métiers et étiquettes OpenStreetMap : salles des fêtes (`amenity=events_venue`, `amenity=wedding_venue`), photographes (`craft=photographer`, `shop=photo`),
 > traiteurs (`craft=caterer`), pâtisseries (`shop=pastry`), coiffure et beauté (`shop=hairdresser`, `shop=beauty`). Robes de mariée (`shop=wedding`, `shop=bridal`) : 0 fiche dans OSM au 05/10/2026, métier non affiché.
