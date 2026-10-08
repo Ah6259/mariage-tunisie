@@ -19,6 +19,9 @@ Répondre à Ahmed **en français**, simplement. Règles communes : `../../regle
 ## Principe
 - Un **moteur commun** (`annuaires/moteur/`, sur le PC d'Ahmed) copié dans chaque annuaire par `python annuaires/synchroniser.py`.
   **Ne jamais modifier le moteur directement dans un site** : modifier `annuaires/moteur/`, synchroniser, puis tester chaque site.
+  Exception : une session SANS le PC (téléphone, Claude en ligne) corrige directement les sites et le note ici ; le PC reporte
+  ensuite dans le moteur. Depuis le 08/10/2026, `synchroniser.py` REFUSE de copier si un site a changé depuis la dernière
+  synchronisation (empreintes `annuaires/.synchro/`) : faire `git pull`, reporter dans moteur/, puis relancer (`--force` après vérification).
 - Propre à chaque site : `config.json` (nom, couleurs, métiers et étiquettes OpenStreetMap, liens vers nos autres sites),
   `donnees/` (osm.json = robot ; inscrits.json = fiches vérifiées ; retraits.json = fiches retirées, jamais republiées),
   `assets/logo.svg`, `assets/icons/` (famille d'icônes commune : `annuaires/icones_annuaires.py`).
