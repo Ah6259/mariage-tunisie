@@ -1,6 +1,6 @@
 # Mariage Tunisie — prestataires
 
-Annuaire gratuit des prestataires de mariage en Tunisie, en français et en arabe : https://ah6259.github.io/mariage-tunisie/
+Annuaire gratuit des prestataires de mariage en Tunisie, en français et en arabe : https://mariage.clicvia.com/
 Salles des fêtes, photographes, traiteurs, pâtisseries, coiffure et beauté — 444 fiches au premier relevé (05/10/2026), issues d'OpenStreetMap
 (`amenity=events_venue`, `amenity=wedding_venue`, `craft=photographer`, `shop=photo`, `craft=caterer`, `shop=pastry`, `shop=hairdresser`, `shop=beauty`).
 
