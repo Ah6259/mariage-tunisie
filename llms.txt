@@ -1,0 +1,43 @@
+# prestataires
+
+> Annuaire gratuit des prestataires de mariage en Tunisie par gouvernorat : salles des fêtes, photographes, traiteurs, pâtisseries, coiffure et beauté. En français et en arabe.
+
+Site gratuit et indépendant, publié par Clicvia (https://clicvia.com/), le portail de services pratiques pour la Tunisie. Adresse : https://mariage.clicvia.com/
+Langues : français, arabe.
+
+## Pages principales
+
+- [À propos et sources](https://mariage.clicvia.com/a-propos/) : D'où viennent les fiches de Mariage Tunisie — prestataires (OpenStreetMap, demandes des professionnels), données personnelles et retrait.
+- [Abla coiff — Coiffure et beauté à سيدي حسين : téléphone, adresse](https://mariage.clicvia.com/fiche/osm-n11143196913/) : Abla coiff, coiffure et beauté à سيدي حسين (gouvernorat de Tunis) : adresse et itinéraire. Annuaire gratuit.
+- [Amich Photographie — Photographe à Monastir : téléphone, adresse](https://mariage.clicvia.com/fiche/web-monastir-amich-photographie/) : Amich Photographie, photographe à Monastir (gouvernorat de Monastir) : téléphone, adresse et itinéraire. Annuaire gratuit.
+- [Ange coiffure et esthétique — Coiffure et beauté à Manouba : téléphone, adresse](https://mariage.clicvia.com/fiche/web-la-manouba-ange-coiffure/) : Ange coiffure et esthétique, coiffure et beauté à Manouba (gouvernorat de La Manouba) : téléphone, adresse et itinéraire. Annuaire gratuit.
+- [Arcadia, espace des fêtes — Salle des fêtes à Dar Chaabane El Fehri : téléphone, adresse](https://mariage.clicvia.com/fiche/web-nabeul-arcadia/) : Arcadia, espace des fêtes, salle des fêtes à Dar Chaabane El Fehri (gouvernorat de Nabeul) : téléphone, adresse et itinéraire. Annuaire gratuit.
+- [art de coiffure et d'esthetique — Coiffure et beauté à Tunis : téléphone, adresse](https://mariage.clicvia.com/fiche/osm-n4294811498/) : art de coiffure et d'esthetique, coiffure et beauté à Tunis (gouvernorat de Tunis) : adresse et itinéraire. Annuaire gratuit.
+- [Barber House -haircuts and shaves- — Coiffure et beauté à Tunis : téléphone, adresse](https://mariage.clicvia.com/fiche/osm-w924411910/) : Barber House -haircuts and shaves-, coiffure et beauté à Tunis (gouvernorat de Tunis) : adresse et itinéraire. Annuaire gratuit.
+- [Beauty Center Samira — Coiffure et beauté à Tozeur : téléphone, adresse](https://mariage.clicvia.com/fiche/web-tozeur-beauty-center-samira/) : Beauty Center Samira, coiffure et beauté à Tozeur (gouvernorat de Tozeur) : téléphone, adresse et itinéraire. Annuaire gratuit.
+- [Beauty House By khouloud — Coiffure et beauté à Jendouba : téléphone, adresse](https://mariage.clicvia.com/fiche/osm-n12941195783/) : Beauty House By khouloud, coiffure et beauté à Jendouba (gouvernorat de Jendouba) : téléphone, adresse et itinéraire. Annuaire gratuit.
+- [Salles des fêtes en Tunisie (49) — téléphone et adresse, gratuit](https://mariage.clicvia.com/metier/salle-des-fetes/) : Salles des fêtes en Tunisie : 49 fiche(s) avec téléphone, adresse, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. قاعات الأفراح في تونس.
+- [Salles des fêtes à Ariana (5) — téléphone et adresse, gratuit](https://mariage.clicvia.com/metier/salle-des-fetes/ariana/) : Salles des fêtes à Ariana : 5 fiche(s) avec téléphone, adresse, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. قاعات الأفراح في ولاية أريانة.
+- [Salles des fêtes à Béja (2) — téléphone et adresse, gratuit](https://mariage.clicvia.com/metier/salle-des-fetes/beja/) : Salles des fêtes à Béja : 2 fiche(s) avec téléphone, adresse, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. قاعات الأفراح في ولاية باجة.
+- [Salles des fêtes à Bizerte (1) — téléphone et adresse, gratuit](https://mariage.clicvia.com/metier/salle-des-fetes/bizerte/) : Salles des fêtes à Bizerte : 1 fiche(s) avec téléphone, adresse, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. قاعات الأفراح في ولاية بنزرت.
+- [Salles des fêtes à Gabès (3) — téléphone et adresse, gratuit](https://mariage.clicvia.com/metier/salle-des-fetes/gabes/) : Salles des fêtes à Gabès : 3 fiche(s) avec téléphone, adresse, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. قاعات الأفراح في ولاية قابس.
+- [Salles des fêtes à Gafsa (2) — téléphone et adresse, gratuit](https://mariage.clicvia.com/metier/salle-des-fetes/gafsa/) : Salles des fêtes à Gafsa : 2 fiche(s) avec téléphone, adresse, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. قاعات الأفراح في ولاية قفصة.
+- [Salles des fêtes à Jendouba (2) — téléphone et adresse, gratuit](https://mariage.clicvia.com/metier/salle-des-fetes/jendouba/) : Salles des fêtes à Jendouba : 2 fiche(s) avec téléphone, adresse, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. قاعات الأفراح في ولاية جندوبة.
+- [Salles des fêtes à Kairouan (3) — téléphone et adresse, gratuit](https://mariage.clicvia.com/metier/salle-des-fetes/kairouan/) : Salles des fêtes à Kairouan : 3 fiche(s) avec téléphone, adresse, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. قاعات الأفراح في ولاية القيروان.
+- [professionnels à Ariana (14) — adresse et téléphone, gratuit](https://mariage.clicvia.com/gouvernorat/ariana/) : professionnels dans le gouvernorat de Ariana : adresse, téléphone, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. مهنيين في ولاية أريانة.
+- [professionnels à Béja (4) — adresse et téléphone, gratuit](https://mariage.clicvia.com/gouvernorat/beja/) : professionnels dans le gouvernorat de Béja : adresse, téléphone, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. مهنيين في ولاية باجة.
+- [professionnels à Ben Arous (10) — adresse et téléphone, gratuit](https://mariage.clicvia.com/gouvernorat/ben-arous/) : professionnels dans le gouvernorat de Ben Arous : adresse, téléphone, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. مهنيين في ولاية بن عروس.
+- [professionnels à Bizerte (15) — adresse et téléphone, gratuit](https://mariage.clicvia.com/gouvernorat/bizerte/) : professionnels dans le gouvernorat de Bizerte : adresse, téléphone, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. مهنيين في ولاية بنزرت.
+- [professionnels à Gabès (13) — adresse et téléphone, gratuit](https://mariage.clicvia.com/gouvernorat/gabes/) : professionnels dans le gouvernorat de Gabès : adresse, téléphone, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. مهنيين في ولاية قابس.
+- [professionnels à Gafsa (7) — adresse et téléphone, gratuit](https://mariage.clicvia.com/gouvernorat/gafsa/) : professionnels dans le gouvernorat de Gafsa : adresse, téléphone, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. مهنيين في ولاية قفصة.
+- [professionnels à Jendouba (5) — adresse et téléphone, gratuit](https://mariage.clicvia.com/gouvernorat/jendouba/) : professionnels dans le gouvernorat de Jendouba : adresse, téléphone, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. مهنيين في ولاية جندوبة.
+- [professionnels à Kairouan (9) — adresse et téléphone, gratuit](https://mariage.clicvia.com/gouvernorat/kairouan/) : professionnels dans le gouvernorat de Kairouan : adresse, téléphone, WhatsApp et itinéraire. Annuaire gratuit en français et en arabe. مهنيين في ولاية القيروان.
+
+Le site compte 393 pages au total ; la liste complète est dans le plan du site : https://mariage.clicvia.com/sitemap.xml
+
+## À savoir
+
+- Annuaire gratuit ; les fiches viennent d'OpenStreetMap et des professionnels eux-mêmes.
+- Site non officiel : en cas de doute, la source officielle indiquée sur la page fait foi.
+- Pour citer : « prestataires » avec le lien de la page utilisée.
+- Les assistants IA qui répondent à une question en citant leur source sont les bienvenus ; l'aspiration du contenu pour entraîner un modèle n'est pas autorisée (voir robots.txt).
