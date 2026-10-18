@@ -39,6 +39,7 @@ Répondre à Ahmed **en français**, simplement. Règles communes : `../../regle
 ## Robots (sans PC)
 - `maj.yml` chaque nuit (02h40 UTC) : relevé OSM (`tools/releve_osm.py` : plusieurs serveurs, nouvelles tentatives, refus si
   chute de plus de 50 % des fiches), pages, tests, publication. `tests.yml` à chaque modification. Échec → e-mail GitHub.
+- **18/10/2026 (VS.8, règle commune du 15/10)** : `maj.yml` ENREGISTRE (commit + push avec 5 essais) `donnees/osm.json` (+ `importes.json`) juste après le relevé, AVANT les pages et les tests ; les pages ne sont publiées que si les tests passent. Tout dans le même robot (un seul robot en attente par groupe de concurrence). Le `maj.yml` n'est PAS copié par `synchroniser.py` : le même fichier est dans les 5 annuaires, à modifier partout pareil.
 
 ## Tests
 `node tools/construire.mjs` puis `node tools/test_site.mjs` → **TOUT PASSE** (jsdom : `npm install --no-save --no-package-lock jsdom`).
