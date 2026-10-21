@@ -51,32 +51,16 @@
   "croissant": true
  },
  {
-  "page": "",
+  "page": "metier/photographe/monastir/",
   "nom": "métier (Photographes) + gouvernorat (Monastir) : nombre de résultats",
-  "etapes": [
-   {
-    "sel": "#choix-g",
-    "valeur": "monastir"
-   },
-   {
-    "sel": ".puce[data-m=\"photographe\"]",
-    "clic": true
-   }
-  ],
   "lire": "#compte",
   "groupe": "metier",
   "ordre": 1,
   "croissant": true
  },
  {
-  "page": "",
-  "nom": "métier (Photographes) dans toute la Tunisie : nombre de résultats",
-  "etapes": [
-   {
-    "sel": ".puce[data-m=\"photographe\"]",
-    "clic": true
-   }
-  ],
+  "page": "metier/photographe/",
+  "nom": "métier (Photographes) dans toute la Tunisie (page du métier) : nombre de résultats",
   "lire": "#compte",
   "groupe": "metier",
   "ordre": 2,
