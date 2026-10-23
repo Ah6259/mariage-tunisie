@@ -31,13 +31,13 @@ Répondre à Ahmed **en français**, simplement. Règles communes : `../../regle
 ## Données et loi
 - Sources permises : **OpenStreetMap** (licence ODbL, crédit sur chaque page), demandes des professionnels. **Jamais** de copie
   d'un annuaire concurrent, du RNE ou de Google Maps.
-- `inscriptions_ouvertes: false` tant que la **déclaration INPDP** n'est pas faite (loi organique 2004-63). Les demandes
+- `inscriptions_ouvertes: true` depuis le 06/10/2026 (accord de l'INPDP obtenu par Ahmed, `config.pro.inpdp_accord` ; loi organique 2004-63). Les demandes
   d'ajout / correction / retrait restent possibles. Un retrait est définitif (`donnees/retraits.json`).
 - Fiche gratuite pour tous ; fiche **Pro** payante plus tard (champ `pro: true`, mise en avant), découverte au moment du besoin.
 - Statistiques anonymes GoatCounter (compteur prix-eaux-tunisie) : `clic-tel|whatsapp|itineraire/<fiche>` = argument de vente Pro.
 
 ## Robots (sans PC)
-- `maj.yml` chaque nuit (02h40 UTC) : relevé OSM (`tools/releve_osm.py` : plusieurs serveurs, nouvelles tentatives, refus si
+- `maj.yml` le 1er de chaque mois (02h40 UTC, décision d'Ahmed du 10/10/2026 ; aussi à chaque modification de `config.json` et à la main) : relevé OSM (`tools/releve_osm.py` : plusieurs serveurs, nouvelles tentatives, refus si
   chute de plus de 50 % des fiches), pages, tests, publication. `tests.yml` à chaque modification. Échec → e-mail GitHub.
 - **18/10/2026 (VS.8, règle commune du 15/10)** : `maj.yml` ENREGISTRE (commit + push avec 5 essais) `donnees/osm.json` (+ `importes.json`) juste après le relevé, AVANT les pages et les tests ; les pages ne sont publiées que si les tests passent. Tout dans le même robot (un seul robot en attente par groupe de concurrence). Le `maj.yml` n'est PAS copié par `synchroniser.py` : le même fichier est dans les 5 annuaires, à modifier partout pareil.
 
